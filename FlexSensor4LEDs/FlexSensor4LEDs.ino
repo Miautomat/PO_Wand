@@ -48,33 +48,25 @@ void loop() {
   valueGreenA4 = analogRead(flexPinA4);
   valueBlackA5 = analogRead(flexPinA5);
 
-  touched(valueYellowA2, ledPin2);
-  touched(valueBlueA3, ledPin3);
-  touched(valueGreenA4, ledPin4);
-  touched(valueBlackA5, ledPin5);
+  touched(valueYellowA2, initYellow, ledPin2);
+  touched(valueBlueA3, initBlue, ledPin3);
+  touched(valueGreenA4, initGreen, ledPin4);
+  touched(valueBlackA5, initBlack, ledPin5);
 
-  Serial.println(valueYellowA2); //Print value
-  Serial.println(valueBlueA3);
+  //Reichenfolge der LEDs am Breadboard!!!
   Serial.println(valueGreenA4);
+  Serial.println(valueYellowA2); //Print value
   Serial.println(valueBlackA5);
+  Serial.println(valueBlueA3);
+
+
   Serial.println();
-  //  valueYellowA2 = map(valueYellowA2, 700, 900, 0, 255);//Map value 0-1023 to 0-255 (PWM)
-  //  valueBlueA3 = map(valueBlueA3, 400, 600, 0, 255);
-  //  valueGreenA4 = map(valueGreenA4, 400, 600, 0, 255);
-  //  valueBlackA5 = map(valueBlackA5, 400, 600, 0, 255);
-  //     Serial.println(valueYellowA2); //Print value
-  // Serial.println(valueBlueA3);
-  // Serial.println(valueGreenA4);
-  // Serial.println(valueBlackA5);
- // analogWrite(ledPin2, valueYellowA2);          //Send PWM value to led
-  //  analogWrite(ledPin3, valueBlueA3);
-  //  analogWrite(ledPin4, valueGreenA4);
-  //  analogWrite(ledPin5, valueBlackA5);
-  delay(500);                          //Small delay
+
+  //delay(500);                          //Small delay
 }
 
-boolean touched(int value, int ledPin) {
-  if(value < 900) {
+boolean touched(int value, int init, int ledPin) {
+  if (value > (init + 20)) {
     analogWrite(ledPin, 100);
   } else {
     analogWrite(ledPin, 0);
