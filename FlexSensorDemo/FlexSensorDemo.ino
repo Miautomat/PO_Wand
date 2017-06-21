@@ -40,7 +40,7 @@ void loop() {
   // Serial.println(valueYellowA2); //Print value
   // Serial.println(valueBlueA3);
   // Serial.println(valueGreenA3);
-   Serial.println(valueBlackA5);
+  // Serial.println(valueBlackA5);
   valueYellowA2 = map(valueYellowA2, 400, 600, 0, 255);//Map value 0-1023 to 0-255 (PWM)
   valueBlueA3 = map(valueBlueA3, 400, 600, 0, 255);
   valueGreenA3 = map(valueGreenA3, 400, 600, 0, 255);
