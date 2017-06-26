@@ -232,12 +232,17 @@ void touchedNEOmulti(int value, int init, int topLine[NUM_EACH_LINE], int middle
     if (topLine[0] == 180) {
       strip.setPixelColor(downLine[0], strip.Color(0, 0, 255));
     }
-    //for richt-lower corner
+    //for right-lower corner
     else if (topLine[0] == 210) {
       //set indicator-LED
       strip.setPixelColor(downLine[29], strip.Color(0, 0, 255));
     }
-    //for left and right upper corner
+    //for right-upper corner
+    else if (topLine[0] == 29) {
+      //set indicator-LED
+      strip.setPixelColor(topLine[29], strip.Color(0, 0, 255));
+    }
+    //for left upper corner
     else {
       //set indicator-LED
       strip.setPixelColor(topLine[0], strip.Color(0, 0, 255));
